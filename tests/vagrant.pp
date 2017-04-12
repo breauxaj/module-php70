@@ -1,5 +1,5 @@
 node default {
-  include ::php70u
+  include ::php70
 
   Yumrepo <| |> -> Package <| provider != 'rpm' |>
 
@@ -18,15 +18,15 @@ node default {
 
   package { 'httpd': ensure => present }
 
-  php70u::config {
+  php70::config {
     'Date/date.timezone': value => 'America/New_York'
   }
 
-  php70u::modules { 'pecl-xdebug': }
+  php70::modules { 'pecl-xdebug': }
 
-  php70u::pecl { 'memprof': require => Package['gcc','gcc-c++','Judy-devel'] }
+  php70::pecl { 'memprof': require => Package['gcc','gcc-c++','Judy-devel'] }
 
-  php70u::raw { '15-xdebug':
+  php70::raw { '15-xdebug':
     content => 'zend_extension = xdebug.so
 xdebug.max_nesting_level = 150
 xdebug.remote_enable = 1
@@ -35,7 +35,7 @@ xdebug.remote_host = 10.0.2.2
 xdebug.idekey = PHPSTORM'
   }
 
-  php70u::raw { '25-memprof':
+  php70::raw { '25-memprof':
     content => 'extension=memprof.so'
   }
 

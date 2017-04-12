@@ -1,14 +1,14 @@
-define php70u::pecl (
-  $ensure = $::php70u::params::php_package_ensure
+define php70::pecl (
+  $ensure = $::php70::params::php_package_ensure
 ) {
-  include ::php70u
+  include ::php70
 
   $extension = $title
 
   package { $extension:
     ensure   => $ensure,
     provider => 'pecl',
-    require  => Package[$::php70u::params::php_packages],
+    require  => Package[$::php70::params::php_packages],
   } ~> Exec['php-apachectl-restart']
 
 }
