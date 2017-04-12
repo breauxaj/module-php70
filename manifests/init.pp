@@ -16,7 +16,7 @@
 #
 #    class { 'php70': }
 #
-class php70u (
+class php70 (
   $ensure = $::php70::params::php_package_ensure
 ) inherits ::php70::params {
   package { $::php70::params::php_packages:
@@ -39,12 +39,6 @@ class php70u (
     command     => '/usr/sbin/apachectl restart',
     onlyif      => '/usr/bin/test -x /usr/sbin/apachectl',
     refreshonly => true
-  }
-
-  exec { 'pecl-update-channels':
-    command => '/usr/bin/pecl update-channels',
-    timeout => 10000,
-    require => Package[$::php70::params::php_packages]
   }
 
 }

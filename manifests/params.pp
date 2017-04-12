@@ -12,7 +12,6 @@ class php70::params {
   case $::operatingsystem {
     'Amazon': {
       $php_packages = [
-        'php7-pear',
         'php70',
         'php70-bcmath',
         'php70-cli',

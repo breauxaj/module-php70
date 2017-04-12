@@ -8,7 +8,9 @@ Vagrant.configure("2") do |config|
   config.vm.define "amazon" do |amazon|
     amazon.vm.box     = 'breauxaj/amazon2017'
     amazon.vm.box_url = "http://vagrant.breaux.io/amazon2017.json"
-    
+
+    amazon.vm.network "private_network", ip: "172.16.0.42"
+
     amazon.vm.provision :puppet do |puppet|
       puppet.manifests_path = "tests"
       puppet.manifest_file  = "vagrant.pp"
