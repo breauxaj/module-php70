@@ -1,20 +1,20 @@
 php70u
 ======
 
-An alternative installation of PHP from IUS.
+An alternative installation of PHP for Amazon AMI.
 
 Samples
 -------
 ```
-include php70u
+include php70
 ```
 ```
-php70u::config {
+php70::config {
   'Date/date.timezone': value => 'America/New_York';
 }
 ```
 ```
-php70u::modules { 'bcmath': ensure => 'latest', }
+php70::modules { 'bcmath': ensure => 'latest', }
 ```
 
 License
