@@ -1,5 +1,5 @@
-php70u
-======
+php70
+=====
 
 An alternative installation of PHP for Amazon AMI.
 
